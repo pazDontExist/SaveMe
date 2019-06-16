@@ -39,3 +39,6 @@ Qui gli operatori hanno a disposizione le seguenti informazioni:
 
 # Mettere mano al codice
 Perfavore si veda il wiki dedicato.
+
+# Donazioni 
+ [![Offri un caffe](https://az743702.vo.msecnd.net/cdn/kofi2.png?v=2)](https://ko-fi.com/B0B5XDIW)
