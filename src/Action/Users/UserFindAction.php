@@ -61,14 +61,13 @@ final class UserFindAction
         foreach ($users as $user) {
             $userList[] = [
                 'id' => $user->id,
-                'username' => $user->username,
-                'first_name' => $user->firstName,
-                'last_name' => $user->lastName,
+                'first_name' => $user->first_name,
+                'last_name' => $user->last_name,
                 'email' => $user->email,
-                'user_role_id' => $user->userRoleId,
+                'user_type' => $user->user_type,
                 'locale' => $user->locale,
-                'enabled' => $user->enabled,
-                'game_room_id' => $user->game_room_id,
+                'created_at' => $user->created_at,
+                'updated_at' => $user->updated_at,
             ];
         }
 

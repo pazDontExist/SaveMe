@@ -49,11 +49,11 @@ final class UserCreator
             $user->password = (string)hash('sha512', $user->password);
         }
 
-        if ( !$user->locale ) {
+        if (!$user->locale) {
             $user->locale = 'en_EN';
         }
 
-        if( !$user->user_type ) {
+        if (!$user->user_type) {
             $user->user_type = Definition::REPORTER;
         }
 

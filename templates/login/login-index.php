@@ -41,7 +41,7 @@
                             <div class="block-header block-header-default">
                                 <h3 class="block-title">Sign In</h3>
                                 <div class="block-options">
-                                    <a class="btn-block-option fs-sm" href="op_auth_reminder.html">Forgot Password?</a>
+                                    <a class="btn-block-option fs-sm" href="#"><?php echo __('Password forgot?');?></a>
                                     <a class="btn-block-option" href="/public/register" data-bs-toggle="tooltip" data-bs-placement="left" title="New Account">
                                         <i class="fa fa-user-plus"></i>
                                     </a>

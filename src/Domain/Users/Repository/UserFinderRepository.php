@@ -39,13 +39,13 @@ final class UserFinderRepository
         $query->select(
             [
                 'id',
-                'username',
                 'first_name',
                 'last_name',
                 'email',
-                'user_role_id',
+                'user_type',
                 'locale',
-                'enabled',
+                'created_at',
+                'updated_at',
             ]
         );
 

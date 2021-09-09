@@ -66,14 +66,13 @@ final class UserReadAction
         // Turn that object into a structured array
         $data = [
             'id' => $user->id,
-            'username' => $user->username,
-            'first_name' => $user->firstName,
-            'last_name' => $user->lastName,
+            'first_name' => $user->first_name,
+            'last_name' => $user->last_name,
             'email' => $user->email,
-            'user_role_id' => $user->userRoleId,
+            'user_type' => $user->user_type,
             'locale' => $user->locale,
-            'enabled' => $user->enabled,
-            'game_room_id' => $user->game_room_id,
+            'created_at' => $user->created_at,
+            'updated_at' => $user->updated_at,
         ];
 
         // Turn all of that into a JSON string and put it into the response body

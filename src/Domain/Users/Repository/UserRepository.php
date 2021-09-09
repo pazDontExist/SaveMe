@@ -57,14 +57,13 @@ final class UserRepository
         $query->select(
             [
                 'id',
-                'username',
                 'first_name',
                 'last_name',
                 'email',
-                'user_role_id',
+                'user_type',
                 'locale',
-                'enabled',
-                'game_room_id',
+                'created_at',
+                'updated_at',
             ]
         );
 

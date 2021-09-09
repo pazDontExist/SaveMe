@@ -163,24 +163,19 @@
                             <span class="nav-main-link-name">Dashboard</span>
                         </a>
                     </li>
-                    <li class="nav-main-heading">Heading</li>
+
                     <li class="nav-main-item">
-                        <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
-                            <i class="nav-main-link-icon si si-puzzle"></i>
-                            <span class="nav-main-link-name">Dropdown</span>
+                        <a class="nav-main-link active" href="/pages/reports">
+                            <i class="nav-main-link-icon si si-list"></i>
+                            <span class="nav-main-link-name"><?php echo __('Reports');?></span>
                         </a>
-                        <ul class="nav-main-submenu">
-                            <li class="nav-main-item">
-                                <a class="nav-main-link" href="javascript:void(0)">
-                                    <span class="nav-main-link-name">Link #1</span>
-                                </a>
-                            </li>
-                            <li class="nav-main-item">
-                                <a class="nav-main-link" href="javascript:void(0)">
-                                    <span class="nav-main-link-name">Link #2</span>
-                                </a>
-                            </li>
-                        </ul>
+                    </li>
+
+                    <li class="nav-main-item">
+                        <a class="nav-main-link active" href="/pages/profile">
+                            <i class="nav-main-link-icon si si-user"></i>
+                            <span class="nav-main-link-name"><?php echo __('Profile');?></span>
+                        </a>
                     </li>
                 </ul>
             </div>

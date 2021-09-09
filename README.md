@@ -4,45 +4,16 @@
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED.
 
 # Save Me
-Sistema per la segnalazione di animali randagi.
+Sistema per la segnalazione di animali randagi/abbandonati/in pessime condizioni.
 
-E' capitato a tutti, almeno una volta, di trovarsi di fronte ad animali randagi nei posti più disparati.
-
-L'intento di questo progetto è quello di dare, GRATUITAMENTE, uno strumento utile alle pubbliche amministrazioni al fine
-di salvare quanti più animali possibili e, in alcuni casi, anche le persone.
-
-
-# WEB
-La parte web si compone di 2 parti:
-* Public
-* Control
-
-## Public
-Semplice landing page dove si spiega cosa è Save Me e dove gli utenti (registrati solo via app) possono controllare lo
-storico delle loro segnalazioni.
-
-## Control
-Questa Parte è dedicata a tutti gli enti pubblici che decidono di aderire al progetto.
-
-Ogni segnalazione è smistata direttamente al distretto di competenza.
-
-Qui gli operatori hanno a disposizione le seguenti informazioni:
-* Data e Ora Segnalazione
-* Latitudine e Longitudine
-* Direzione
-* Foto
-* Descrizione
-* Tipo Animale (Cane, gatto o altro)
-
-
-# APP
-
-# Mettere mano al codice
-Perfavore si veda il wiki dedicato.
+# TODO
+* Gestione presa in carico delle richieste
+* Implementare registrazione con conferma e-mail
+* Pagina recupero password
+* Mobile App
+* Aggiornare il file yaml con la definizione delle api (swagger)
+* Profilo e pagina ADMIN
+* Completare file .po per la traduzione in italiano
 
 # Donazioni 
  [![Offri un caffe](https://az743702.vo.msecnd.net/cdn/kofi2.png?v=2)](https://ko-fi.com/B0B5XDIW)
-
-https://www.openstreetmap.org/?mlat=41.2567587&mlon=13.7005279#map=19/41.25663/13.70054
-
-https://revgeocode.search.hereapi.com/v1/revgeocode?at=48.2181679%2C16.3899064&lang=en-US&apiKey=5sErVRExWWS1Geh4LKSGI_Ba_6KXF5a4nfl7tWREz_c

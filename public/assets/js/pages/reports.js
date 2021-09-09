@@ -1,9 +1,8 @@
 var tbl_reports;
 
 $(document).ready(function () {
-    load_stat();
-    tbl_reports = $("#tbl_pending_reports").DataTable({
-        ajax: '/api/reports/list/1',
+    tbl_reports = $("#tbl_all_reports").DataTable({
+        ajax: '/api/reports/list/',
         order: [[ 0, "desc" ]],
         dom:'Bfrtip',
         scrollX:true,
@@ -60,18 +59,6 @@ $(document).ready(function () {
     });
 });
 
-function load_stat(){
-    $.get('/statistics/reports/total', function(data){
-        $("#lbl_pending_reports").text(data.total_pending);
-        $("#lbl_working_closed").text(data.total_working + "/" + data.total_closed);
-        $("#lbl_total_reports").text(parseInt(data.total_pending) + parseInt(data.total_working)+parseInt(data.total_closed));
-    });
-
-    $.get('/statistics/user/total', function(data){
-        $("#lbl_reporters").text(data.total_user);
-    });
-}
-
 function load_report_detail(id)
 {
     $("#loader").show();
@@ -110,9 +97,8 @@ function load_report_detail(id)
 }
 
 setInterval(function(){
-    load_stat();
     tbl_reports.ajax.reload(null, false);
-}, 5000);
+}, 10000);
 
 function user_detail(user_id){
     alert(user_id);

@@ -74,6 +74,12 @@
                                                 <input type="password" class="form-control form-control-lg form-control-alt" id="signup-password-confirm" name="signup-password-confirm" placeholder="Confirm Password">
                                             </div>
                                             <div class="mb-4">
+                                                <select id="locale" class="form-control form-control-lg form-control-alt">
+                                                    <option value="it_IT">ITALIANO</option>
+                                                    <option value="en_EN">ENGLISH</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-4">
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" value="" id="signup-terms" name="signup-terms">
                                                     <label class="form-check-label" for="signup-terms"><?php echo __('I agree to Terms &amp; Conditions');?></label>
@@ -192,7 +198,8 @@
             first_name: $("#signup-name").val(),
             last_name: $("#signup-surname").val(),
             email: $("#signup-email").val(),
-            password: $("#signup-password").val()
+            password: $("#signup-password").val(),
+            locale:$("#locale").val()
         }, function(response){
             if( response.status == 'error' ) {
                 $("#register_result").html('<div class="alert alert-danger alert-dismissible" role="alert">'+

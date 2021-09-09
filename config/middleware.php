@@ -14,6 +14,8 @@ return function (App $app) {
 
     $app->add(SessionMiddleware::class);
 
+    $app->add(\App\Middleware\CorsMiddleware::class);
+
     $app->addRoutingMiddleware();
 
     $app->add(\App\Middleware\UserTwigMiddleware::class);

@@ -6,10 +6,10 @@ use Slim\Routing\RouteCollectorProxy;
 
 return function (App $app) {
 
-    $app->add(function ($request, $handler) {
+   $app->add(function ($request, $handler) {
         $response = $handler->handle($request);
         return $response
-            ->withHeader('Access-Control-Allow-Origin', 'http://localhost:63342')
+            ->withHeader('Access-Control-Allow-Origin', '*')
             ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
             ->withHeader('Access-Control-Allow-Methods', 'GET, POST');
     });
@@ -34,6 +34,7 @@ return function (App $app) {
     $app->group('/pages', function (RouteCollectorProxy $group) {
         $group->get("/home", \App\Action\Pages\HomePageAction::class)->setName('pages-home');
         $group->get("/profile", \App\Action\Pages\ProfilePageAction::class)->setName('profile-home');
+        $group->get("/reports", \App\Action\Pages\ReportsPageAction::class)->setName('reports');
     })->add(UserAuthMiddleware::class);
 
     // API endpoints. This group is protected with JWT.
@@ -97,7 +98,10 @@ return function (App $app) {
         $group->get('/reports/total', \App\Action\Statistics\StatisticsTotalReport::class);
         $group->get('/user/total', \App\Action\Statistics\StatisticsTotalUsers::class);
 
-
-
     });
+
+    /*
+    $app->group('/mobile', function (RouteCollectorProxy $group) {
+        $group->post('/reports/new', \App\Action\Reports\ReportNewAction::class);
+    });*/
 };
