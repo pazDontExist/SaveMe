@@ -42,3 +42,7 @@ Perfavore si veda il wiki dedicato.
 
 # Donazioni 
  [![Offri un caffe](https://az743702.vo.msecnd.net/cdn/kofi2.png?v=2)](https://ko-fi.com/B0B5XDIW)
+
+https://www.openstreetmap.org/?mlat=41.2567587&mlon=13.7005279#map=19/41.25663/13.70054
+
+https://revgeocode.search.hereapi.com/v1/revgeocode?at=48.2181679%2C16.3899064&lang=en-US&apiKey=5sErVRExWWS1Geh4LKSGI_Ba_6KXF5a4nfl7tWREz_c
