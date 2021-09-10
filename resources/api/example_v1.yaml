@@ -2,10 +2,6 @@ openapi: 3.0.2
 info:
   version: 1.0.0
   title: SaveMe
-  contact:
-    name: LugCE
-    url: 'https://lugce.it'
-    email: info@lugce.it
   description: |-
     Documentazione API SaveMe.
   license:
@@ -88,7 +84,7 @@ paths:
     get:
       tags:
         - Reports
-  '/api/list/[{status}]':
+  '/api/reports/list/[{status}]':
     get:
       tags:
         - Reports
