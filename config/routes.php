@@ -84,6 +84,8 @@ return function (App $app) {
          */
         $group->post('/reports/new', \App\Action\Reports\ReportNewAction::class);
 
+        $group->get('/reports/takecharge/{report_id}', \App\Action\Reports\ReportTakeChargeAction::class);
+
         /********* END REPORT SECTION ************/
 
         /**

@@ -4,7 +4,7 @@
 namespace App\Domain\Reports\Service;
 
 use App\Domain\Reports\Data\ReportData;
-use App\Domain\Reports\Repository\ReportRespository;
+use App\Domain\Reports\Repository\ReportRepository;
 use App\LugCE\Definition;
 
 /**
@@ -12,18 +12,18 @@ use App\LugCE\Definition;
  */
 final class ReportAdd
 {
-    private ReportRespository $repository;
+    private ReportRepository $repository;
 
     private ReportValidator $reportValidator;
 
     /**
      * The constructor.
      *
-     * @param ReportRespository $repository The repository
+     * @param ReportRepository $repository The repository
      */
     public function __construct(
-        ReportRespository $repository,
-        ReportValidator $reportValidator
+        ReportRepository $repository,
+        ReportValidator  $reportValidator
     )
     {
         $this->repository = $repository;

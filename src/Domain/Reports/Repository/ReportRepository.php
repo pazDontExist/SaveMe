@@ -7,11 +7,12 @@ use App\Factory\QueryFactory;
 use App\LugCE\Definition;
 use Cake\Chronos\Chronos;
 use DomainException;
+use PHPUnit\Exception;
 
 /**
  * Repository.
  */
-final class ReportRespository
+final class ReportRepository
 {
     private QueryFactory $queryFactory;
 
@@ -250,5 +251,24 @@ final class ReportRespository
             'city'          => $report->city,
             'county'        => $report->county,
         ];
+    }
+
+    /**
+     * @param $row
+     * @return int[]
+     */
+    function takeCharge($row): array
+    {
+        $row['created_at'] = Chronos::now()->toDateTimeString();
+        try {
+            $tk_id = (int)$this->queryFactory->newInsert('taken_charge', $row)
+                ->execute()
+                ->lastInsertId();
+        } catch (\Exception $e) {
+            return ['status'=>'error', 'message' => $e->getCode()] ;
+        }
+
+
+        return ['status'=>'success','charge_id' => $tk_id] ;
     }
 }

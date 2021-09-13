@@ -5,6 +5,7 @@ namespace App\Action\Reports;
 use App\Domain\Reports\Data\ReportData;
 use App\Domain\Reports\Service\ReportReader;
 use App\Responder\Responder;
+use PHP_CodeSniffer\Reports\Report;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
@@ -59,7 +60,7 @@ final class ReportDetailAction
      * Transform result to response.
      *
      * @param ResponseInterface $response The response
-     * @param VLTData $vlt The user
+     * @param ReportData $report The report
      *
      * @return ResponseInterface The response
      */

@@ -160,7 +160,7 @@
                 </div>
                 <div class="block-content block-content-full text-end bg-body">
                     <button type="button" class="btn btn-sm btn-alt-secondary me-1" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-sm btn-primary"><?php echo __('Take Charge');?></button>
+                    <button type="button" onclick="take_charge();" class="btn btn-sm btn-primary"><?php echo __('Take Charge');?></button>
                 </div>
             </div>
         </div>

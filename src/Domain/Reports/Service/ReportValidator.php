@@ -2,7 +2,7 @@
 
 namespace App\Domain\Reports\Service;
 
-use App\Domain\Reports\Repository\ReportRespository;
+use App\Domain\Reports\Repository\ReportRepository;
 use App\Factory\ValidationFactory;
 use Cake\Validation\Validator;
 use Selective\Validation\Exception\ValidationException;
@@ -12,17 +12,17 @@ use Selective\Validation\Exception\ValidationException;
  */
 final class ReportValidator
 {
-    private ReportRespository $repository;
+    private ReportRepository $repository;
 
     private ValidationFactory $validationFactory;
 
     /**
      * The constructor.
      *
-     * @param ReportRespository $repository The repository
+     * @param ReportRepository $repository The repository
      * @param ValidationFactory $validationFactory The validation
      */
-    public function __construct(ReportRespository $repository, ValidationFactory $validationFactory)
+    public function __construct(ReportRepository $repository, ValidationFactory $validationFactory)
     {
         $this->repository = $repository;
         $this->validationFactory = $validationFactory;

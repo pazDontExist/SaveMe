@@ -1,4 +1,5 @@
-var tbl_reports;
+let tbl_reports;
+let report_id;
 
 $(document).ready(function () {
     load_stat();
@@ -74,6 +75,7 @@ function load_stat(){
 
 function load_report_detail(id)
 {
+    report_id = id;
     $("#loader").show();
     $.get('/api/reports/detail/'+id, function (report) {
         switch (report.report_type) {
@@ -116,4 +118,18 @@ setInterval(function(){
 
 function user_detail(user_id){
     alert(user_id);
+}
+
+function take_charge(){
+    $.get('/api/reports/takecharge/' + report_id, function(data){
+        if ( data.status == 'error') {
+            if( data.message == '23000'){
+                Swal.fire('Error', 'Already Assigned to you', 'error')
+            } else {
+                Swal.fire("Error", 'Something went wrong, try again later', 'error');
+            }
+        } else {
+            Swal.fire("Success", data.message + 'success');
+        }
+    });
 }

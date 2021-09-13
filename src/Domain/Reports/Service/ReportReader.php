@@ -4,21 +4,21 @@
 namespace App\Domain\Reports\Service;
 
 use App\Domain\Reports\Data\ReportData;
-use App\Domain\Reports\Repository\ReportRespository;
+use App\Domain\Reports\Repository\ReportRepository;
 
 /**
  * Service.
  */
 final class ReportReader
 {
-    private ReportRespository $repository;
+    private ReportRepository $repository;
 
     /**
      * The constructor.
      *
-     * @param ReportRespository $repository The repository
+     * @param ReportRepository $repository The repository
      */
-    public function __construct(ReportRespository $repository)
+    public function __construct(ReportRepository $repository)
     {
         $this->repository = $repository;
     }
