@@ -1,6 +1,7 @@
 <?php
 namespace App\Test\TestCase\Action\Users;
 
+use App\LugCE\Definition;
 use App\Test\Fixture\UserFixture;
 use App\Test\Traits\AppTestTrait;
 use Fig\Http\Message\StatusCodeInterface;
@@ -31,8 +32,8 @@ class UserReadActionTest extends TestCase
             'POST',
             '/login',
             [
-                'username' => 'admin@example.com',
-                'password' => 'password'
+                'username' => 'ajeje@example.com',
+                'password' => 'asdasd'
             ]
         );
 
@@ -41,8 +42,7 @@ class UserReadActionTest extends TestCase
 
 
 
-        $request = $this->createRequest('GET', '/api/user/detail/1')
-            ->withHeader('Authorization', 'Bearer ' . $data['access_token']);
+        $request = $this->createRequest('GET', '/api/user/detail/2');
         $response = $this->app->handle($request);
 
         $this->assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
@@ -50,14 +50,13 @@ class UserReadActionTest extends TestCase
         $this->assertJsonData(
             [
                 'id' => 2,
-                'username' => 'admin',
-                'password' => 'password',
-                'first_name' => null,
-                'last_name' => null,
-                'email' => 'admin@example.com',
-                'user_role_id' => 1,
-                'locale' => 'en_US',
-                'enabled' => true,
+                'first_name' => 'tizio',
+                'last_name' => 'caio',
+                'email' => 'user@example.com',
+                'user_type' => Definition::REPORTER,
+                'locale' => 'it_IT',
+                'created_at' => '2019-01-09 14:05:19',
+                'updated_at' => '2019-01-09 14:05:19',
             ],
             $response
         );
@@ -83,8 +82,7 @@ class UserReadActionTest extends TestCase
         $data = $response->getBody();
 
 
-        $request = $this->createRequest('GET', '/api/user/detail/99')
-            ->withHeader('Authorization', 'Bearer ' . $data['access_token']);
+        $request = $this->createRequest('GET', '/api/user/detail/99');
         $response = $this->app->handle($request);
 
         $this->assertSame(StatusCodeInterface::STATUS_BAD_REQUEST, $response->getStatusCode());
