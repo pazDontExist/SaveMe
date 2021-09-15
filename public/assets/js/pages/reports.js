@@ -101,5 +101,19 @@ setInterval(function(){
 }, 10000);
 
 function user_detail(user_id){
-    alert(user_id);
+    $.get('/api/user/detail/'+user_id, function(data){
+        Swal.fire({
+            title: 'User Detail',
+            icon: 'info',
+            html:
+                '<b>Name</b> ' + data.first_name + '<br>'+
+                '<b>Surname</b> ' + data.last_name + '<br>'+
+                '<b>E-Mail</b> ' + data.email + '<br>'+
+                '<b>Registered</b> ' + data.created_at + '<br>'
+            ,
+            showCloseButton: false,
+            showCancelButton: false,
+            focusConfirm: false
+        })
+    });
 }

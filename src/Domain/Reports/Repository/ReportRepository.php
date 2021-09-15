@@ -253,22 +253,28 @@ final class ReportRepository
         ];
     }
 
+
     /**
-     * @param $row
-     * @return int[]
+     * @param array $row
+     * @return array
      */
-    function takeCharge($row): array
+    public function takeCharge(array $row): array
     {
         $row['created_at'] = Chronos::now()->toDateTimeString();
         try {
             $tk_id = (int)$this->queryFactory->newInsert('taken_charge', $row)
                 ->execute()
                 ->lastInsertId();
+
+            $upd = ['status' => Definition::WORKING];
+            $rep = $this->queryFactory->newUpdate("reports", $upd)
+                ->andWhere(['id'=>$row['report_id']])
+                ->execute();
+
         } catch (\Exception $e) {
             return ['status'=>'error', 'message' => $e->getCode()] ;
         }
 
-
-        return ['status'=>'success','charge_id' => $tk_id] ;
+        return ['status'=>'success','charge_id' => $tk_id, 'message' => __('Report Assigned')] ;
     }
 }

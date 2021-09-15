@@ -24,7 +24,8 @@ final class ReportsPageAction
             $this->renderer->setLayout('layout/layout.php');
             $this->renderer->addAttribute('css', [
                 '/assets/js/plugins/datatables-bs5/dataTables.bootstrap5.css',
-                '/assets/js/plugins/datatables-buttons-bs5/buttons.bootstrap5.min.css'
+                '/assets/js/plugins/datatables-buttons-bs5/buttons.bootstrap5.min.css',
+                '/assets/js/plugins/sweetalert2/sweetalert2.css'
             ]);
 
             $this->renderer->addAttribute('js', [
@@ -36,6 +37,7 @@ final class ReportsPageAction
                 '//cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js',
                 '//cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js',
                 '//cdn.datatables.net/buttons/2.0.0/js/buttons.html5.min.js',
+                '/assets/js/plugins/sweetalert2/sweetalert2.all.js',
             ]);
 
             return $this->renderer->render($response, 'reports/reports.php');
