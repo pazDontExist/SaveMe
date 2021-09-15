@@ -15,6 +15,16 @@ CREATE TABLE `reports` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+CREATE TABLE `taken_charge` (
+  `tk_id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int DEFAULT NULL,
+  `report_id` int DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `note` text,
+  PRIMARY KEY (`tk_id`),
+  UNIQUE KEY `taken_charge_pk` (`user_id`,`report_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 CREATE TABLE `users` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `first_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
