@@ -21,7 +21,7 @@ $settings['public'] = $settings['root'] . '/public';
 $settings['template'] = $settings['root'] . '/templates';
 
 // Error Handling Middleware settings
-if ( getenv('ENVIRONMENT') == 'dev')  {
+if (getenv('ENVIRONMENT') == 'dev') {
     $settings['error'] = [
 
         // Should be set to false in production
@@ -110,11 +110,6 @@ $settings['phoenix'] = [
     'log_table_name' => 'phoenix_log',
 ];
 
-// Console commands
-$settings['commands'] = [
-    \App\Console\SchemaDumpCommand::class,
-];
-
 $settings['view'] = [
 // Path to templates
     'path' => __DIR__ . '/../templates',
@@ -134,9 +129,10 @@ $settings['twig'] = [
     ],
 ];
 
+// Console commands
 $settings['commands'] = [
     \App\Console\SchemaDumpCommand::class,
-    // Add more here...
+    \App\Console\SchemaImportCommand::class,
 ];
 
 $settings['session'] = [
