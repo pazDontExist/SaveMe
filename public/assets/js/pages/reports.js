@@ -64,14 +64,18 @@ function load_report_detail(id)
     $("#loader").show();
     $.get('/api/reports/detail/'+id, function (report) {
         switch (report.report_type) {
-            case "1":
+            case 1:
                 $("#report_type").text('BAD CONDITION');
-            case "2":
+                break;
+            case 2:
                 $("#report_type").text('ABANDONED');
-            case "3":
+                break;
+            case 3:
                 $("#report_type").text('STRAY');
+                break;
             default:
-                $("#report_type").text('UNKNOW');
+                $("#report_type").text('UNKNOW => ' + report.report_type);
+                break;
         }
 
         let photo;
