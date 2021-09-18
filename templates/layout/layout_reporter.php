@@ -61,7 +61,7 @@
         <!-- Side Header -->
         <div class="content-header">
             <!-- Logo -->
-            <a class="fw-semibold text-dual" href="index.html">
+            <a class="fw-semibold text-dual" href="/pages/home">
             <span class="smini-visible">
               <i class="fa fa-circle-notch text-primary"></i>
             </span>
@@ -160,15 +160,23 @@
                     <li class="nav-main-item">
                         <a class="nav-main-link active" href="/pages/home">
                             <i class="nav-main-link-icon si si-speedometer"></i>
-                            <span class="nav-main-link-name">Dashboard</span>
+                            <span class="nav-main-link-name"><?php echo __('Dashboard');?></span>
+                        </a>
+                    </li>
+
+                    <li class="nav-main-item">
+                        <a class="nav-main-link active" href="/pages/new_report">
+                            <i class="nav-main-link-icon si si-bell"></i>
+                            <span class="nav-main-link-name"><?php echo __('New Report');?></span>
                         </a>
                     </li>
 
                     <li class="nav-main-item">
                         <a class="nav-main-link active" href="/pages/profile">
                             <i class="nav-main-link-icon si si-user"></i>
-                            <span class="nav-main-link-name">Profile</span>
+                            <span class="nav-main-link-name"><?php echo __('Profile');?></span>
                         </a>
+                    </li>
                 </ul>
             </div>
             <!-- END Side Navigation -->

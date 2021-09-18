@@ -35,6 +35,7 @@ return function (App $app) {
         $group->get("/home", \App\Action\Pages\HomePageAction::class)->setName('pages-home');
         $group->get("/profile", \App\Action\Pages\ProfilePageAction::class)->setName('profile-home');
         $group->get("/reports", \App\Action\Pages\ReportsPageAction::class)->setName('reports');
+        $group->get("/new_report", \App\Action\Pages\NewReportPageAction::class)->setName('new-reports');
     })->add(UserAuthMiddleware::class);
 
     // API endpoints. This group is protected with JWT.

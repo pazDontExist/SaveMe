@@ -39,6 +39,7 @@ final class ReportRepository
         $row['created_at'] = Chronos::now()->toDateTimeString();
         $row['updated_at'] = Chronos::now()->toDateTimeString();
         $row['status'] = Definition::PENDING;
+        $row['user_id'] = $_SESSION['user'];
 
         return (int)$this->queryFactory->newInsert('reports', $row)
             ->execute()
