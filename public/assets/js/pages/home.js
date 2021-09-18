@@ -16,9 +16,9 @@ $(document).ready(function () {
         ],
         "columns": [
             {"data": "id"},
-            {"data": null, render:function(row){
+            {"data": null, render:function (row) {
                 return '<a class="link-fx" onclick="user_detail('+row.user_id+')" href="javascript:void(0)">'+row.first_name + ' ' + row.last_name+'</a>';
-                }},
+            }},
             {"data": "report_type", render: function (row) {
                 switch (row) {
                     case "1":
@@ -52,7 +52,7 @@ $(document).ready(function () {
                 if ( row.status > "1") {
                     return '<a class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#modal-report-detail" onclick="load_report_detail('+ row.id +')"><i class="fa fa-glasses"></i></a>';
                 } else {
-                    return '<a class="btn btn-sm btn-danger"><i class="fa fa-window-close"></i></a>&nbsp;' +
+                    return '<a onclick="delete_report('+ row.id +')" class="btn btn-sm btn-danger"><i class="fa fa-window-close"></i></a>&nbsp;' +
                         '<a data-bs-toggle="modal" data-bs-target="#modal-report-detail" onclick="load_report_detail('+ row.id +')" class="btn btn-sm btn-primary"><i class="fa fa-glasses"></i></a>';
                 }
 
@@ -61,14 +61,15 @@ $(document).ready(function () {
     });
 });
 
-function load_stat(){
-    $.get('/statistics/reports/total', function(data){
+function load_stat()
+{
+    $.get('/statistics/reports/total', function (data) {
         $("#lbl_pending_reports").text(data.total_pending);
         $("#lbl_working_closed").text(data.total_working + "/" + data.total_closed);
         $("#lbl_total_reports").text(parseInt(data.total_pending) + parseInt(data.total_working)+parseInt(data.total_closed));
     });
 
-    $.get('/statistics/user/total', function(data){
+    $.get('/statistics/user/total', function (data) {
         $("#lbl_reporters").text(data.total_user);
     });
 }
@@ -115,13 +116,14 @@ function load_report_detail(id)
     });
 }
 
-setInterval(function(){
+setInterval(function () {
     load_stat();
     tbl_reports.ajax.reload(null, false);
 }, 5000);
 
-function user_detail(user_id){
-    $.get('/api/user/detail/'+user_id, function(data){
+function user_detail(user_id)
+{
+    $.get('/api/user/detail/'+user_id, function (data) {
         Swal.fire({
             title: 'User Detail',
             icon: 'info',
@@ -138,10 +140,11 @@ function user_detail(user_id){
     });
 }
 
-function take_charge(){
-    $.get('/api/reports/takecharge/' + report_id, function(data){
+function take_charge()
+{
+    $.get('/api/reports/takecharge/' + report_id, function (data) {
         if ( data.status == 'error') {
-            if( data.message == '23000'){
+            if ( data.message == '23000') {
                 Swal.fire('Error', 'Already Assigned to you', 'error')
             } else {
                 Swal.fire("Error", 'Something went wrong, try again later', 'error');
@@ -150,4 +153,35 @@ function take_charge(){
             Swal.fire("Success", data.message, 'success');
         }
     });
+}
+
+function delete_report(id)
+{
+    Swal.fire({
+        title: 'Sei sicuro?',
+        text: "Questa azione è irreversibile!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, sono sicuro!!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.get('/api/reports/delete/' + id, function(data){
+                if ( data.status == 'success') {
+                    Swal.fire(
+                        'Eliminato!',
+                        data.message,
+                        'success'
+                    )
+                } else {
+                    Swal.fire(
+                        'Whoops!',
+                        data.message,
+                        'error'
+                    )
+                }
+            });
+        }
+    })
 }

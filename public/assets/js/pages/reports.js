@@ -50,7 +50,7 @@ $(document).ready(function () {
                 if ( row.status > "1") {
                     return '<a class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#modal-report-detail" onclick="load_report_detail('+ row.id +')"><i class="fa fa-glasses"></i></a>';
                 } else {
-                    return '<a class="btn btn-sm btn-danger"><i class="fa fa-window-close"></i></a>&nbsp;' +
+                    return '<a onclick="delete_report('+ row.id +')" class="btn btn-sm btn-danger"><i class="fa fa-window-close"></i></a>&nbsp;' +
                         '<a data-bs-toggle="modal" data-bs-target="#modal-report-detail" onclick="load_report_detail('+ row.id +')" class="btn btn-sm btn-primary"><i class="fa fa-glasses"></i></a>';
                 }
 
@@ -120,4 +120,35 @@ function user_detail(user_id){
             focusConfirm: false
         })
     });
+}
+
+function delete_report(id)
+{
+    Swal.fire({
+        title: 'Sei sicuro?',
+        text: "Questa azione è irreversibile!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, sono sicuro!!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.get('/api/reports/delete/' + id, function(data){
+                if ( data.status == 'success') {
+                    Swal.fire(
+                        'Eliminato!',
+                        data.message,
+                        'success'
+                    )
+                } else {
+                    Swal.fire(
+                        'Whoops!',
+                        data.message,
+                        'error'
+                    )
+                }
+            });
+        }
+    })
 }

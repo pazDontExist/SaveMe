@@ -86,6 +86,7 @@ return function (App $app) {
 
         $group->get('/reports/takecharge/{report_id}', \App\Action\Reports\ReportTakeChargeAction::class);
 
+        $group->get('/reports/delete/{id}', \App\Action\Reports\ReportDeleteAction::class);
         /********* END REPORT SECTION ************/
 
         /**

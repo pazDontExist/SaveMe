@@ -220,11 +220,17 @@ final class ReportRepository
      *
      * @return void
      */
-    public function deleteReportById(int $reportID): void
+    public function deleteReportById(int $reportID): array
     {
-        $this->queryFactory->newDelete('reports')
+        if ( $this->queryFactory->newDelete('reports')
             ->andWhere(['id' => $reportID])
-            ->execute();
+            ->execute() ) {
+            return ['status'=>'success', 'message' => __('Report deleted')];
+        }
+
+        return ['status'=>'error', 'message' => __('Error while deleting the report')];
+
+
     }
 
     /**
