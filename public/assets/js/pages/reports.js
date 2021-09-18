@@ -14,9 +14,9 @@ $(document).ready(function () {
         ],
         "columns": [
             {"data": "id"},
-            {"data": null, render:function(row){
+            {"data": null, render:function (row) {
                 return '<a class="link-fx" onclick="user_detail('+row.user_id+')" href="javascript:void(0)">'+row.first_name + ' ' + row.last_name+'</a>';
-                }},
+            }},
             {"data": "report_type", render: function (row) {
                 switch (row) {
                     case "1":
@@ -100,12 +100,13 @@ function load_report_detail(id)
     });
 }
 
-setInterval(function(){
+setInterval(function () {
     tbl_reports.ajax.reload(null, false);
 }, 10000);
 
-function user_detail(user_id){
-    $.get('/api/user/detail/'+user_id, function(data){
+function user_detail(user_id)
+{
+    $.get('/api/user/detail/'+user_id, function (data) {
         Swal.fire({
             title: 'User Detail',
             icon: 'info',
@@ -134,7 +135,7 @@ function delete_report(id)
         confirmButtonText: 'Si, sono sicuro!!'
     }).then((result) => {
         if (result.isConfirmed) {
-            $.get('/api/reports/delete/' + id, function(data){
+            $.get('/api/reports/delete/' + id, function (data) {
                 if ( data.status == 'success') {
                     Swal.fire(
                         'Eliminato!',

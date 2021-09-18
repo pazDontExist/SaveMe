@@ -167,7 +167,7 @@ function delete_report(id)
         confirmButtonText: 'Si, sono sicuro!!'
     }).then((result) => {
         if (result.isConfirmed) {
-            $.get('/api/reports/delete/' + id, function(data){
+            $.get('/api/reports/delete/' + id, function (data) {
                 if ( data.status == 'success') {
                     Swal.fire(
                         'Eliminato!',

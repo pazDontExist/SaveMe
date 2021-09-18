@@ -6,7 +6,7 @@ use Slim\Routing\RouteCollectorProxy;
 
 return function (App $app) {
 
-   $app->add(function ($request, $handler) {
+    $app->add(function ($request, $handler) {
         $response = $handler->handle($request);
         return $response
             ->withHeader('Access-Control-Allow-Origin', '*')
@@ -93,14 +93,12 @@ return function (App $app) {
          * Image renderer
          */
         $group->get('/img/{photo}/{extension}', \App\Action\Reports\ReportImageRender::class);
-
     })->add(UserAuthMiddleware::class);
 
     $app->group('/statistics', function (RouteCollectorProxy $group) {
 
         $group->get('/reports/total', \App\Action\Statistics\StatisticsTotalReport::class);
         $group->get('/user/total', \App\Action\Statistics\StatisticsTotalUsers::class);
-
     });
 
     /*

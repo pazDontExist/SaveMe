@@ -222,15 +222,13 @@ final class ReportRepository
      */
     public function deleteReportById(int $reportID): array
     {
-        if ( $this->queryFactory->newDelete('reports')
+        if ($this->queryFactory->newDelete('reports')
             ->andWhere(['id' => $reportID])
-            ->execute() ) {
+            ->execute()) {
             return ['status'=>'success', 'message' => __('Report deleted')];
         }
 
         return ['status'=>'error', 'message' => __('Error while deleting the report')];
-
-
     }
 
     /**
@@ -276,7 +274,6 @@ final class ReportRepository
             $rep = $this->queryFactory->newUpdate("reports", $upd)
                 ->andWhere(['id'=>$row['report_id']])
                 ->execute();
-
         } catch (\Exception $e) {
             return ['status'=>'error', 'message' => $e->getCode()] ;
         }
