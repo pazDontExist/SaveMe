@@ -73,7 +73,7 @@ final class LoginSubmitAction
             // Redirect to protected page
             $response = $response->withHeader('Content-Type', 'application/json');
             $response->getBody()->write((string)json_encode(['status'=>'success', 'user_data'=>$userData], JSON_THROW_ON_ERROR));
-            return $response->withStatus(201);
+            return $response->withStatus(200);
         } else {
             $flash->add('error', 'Login failed!');
             return $response
