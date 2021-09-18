@@ -56,8 +56,8 @@
                             </div>
 
                             <div class="mb-4">
-                                <label class="form-label" for="note"><?php echo __('Note');?></label>
-                                <textarea class="form-control" id="note" name="note" rows="4"></textarea>
+                                <label class="form-label" for="notes"><?php echo __('Note');?></label>
+                                <textarea class="form-control" id="notes" name="notes" rows="4"></textarea>
                             </div>
 
                             <div class="mb-4">
